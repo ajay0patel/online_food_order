@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+
+<nav class="navbar navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand"><h5> Welcome {{user_name}} </h5></a>
+    <a href="/myorders/" class="nav-link"><h5>My Orders</h5></a>
+    <a href="/customer/welcome/" class="btn btn-danger"><h5>Back</h5></a>
+  </div>
+</nav>
+
+{% for odr in orders %}
+<div style="margin:40px" class="alert alert-info" role="alert">
+    <h5>Name : {{odr.username}}</h5>
+    <h5>Phone Number : {{odr.phonno}}</h5>
+    <h5>Delivery Address : {{odr.address}}</h5>
+    <h5>Ordered Pizzas : {{odr.ordereditems}}</h5>
+    <h5>Total Amount : {{odr.totalAmount}}</h5>
+    <h5 style="display: inline-block"> Ordered Status : </h5> <h5 style="color:red;display: inline-block">{{odr.status}}</h5>
+
+</div>
+{% endfor %}
+
+
+<!--
+{% for item in items %}
+
+  <h5>{{item.Name}}</h5>
+  <h5>{{item.Price}}</h5>
+  <h5>{{item.Quantity}}</h5>      
+
+{% endfor %}
+
+-->
+
+
+
+
+
+{% endblock %}

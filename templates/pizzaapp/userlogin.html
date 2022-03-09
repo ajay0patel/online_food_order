@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div style="background-color : #AC33FF;
+             width : 350px;
+             display : block;
+             margin : auto;
+             margin-top : 150px;
+             padding : 17px"
+             >
+    <form action="/customer/authenticate/" method="post"> 
+
+    {% csrf_token %}
+
+    <h1 style="text-align : center ; color : white" >User Login</h1>
+
+    <input type="text" style="display : block ; margin : auto" class="form-control" style="margin-bottom : 15px" name="username" placeholder="User Name"  required="required">
+
+    <input type="password" style="display : block ; margin : auto;margin-top : 15px" class="form-control" name="password" placeholder="Password"  required="required">
+        
+    <button type="submit" style="display : block ; margin : auto;margin-top : 15px" class="btn btn-primary">Login</button>
+
+    </form>
+
+</div>
+
+{% for msj  in messages %}
+    <p style="color : red ; text-align : center">{{msj}}</p>
+    {% endfor %}
+
+
+
+
+{% endblock %}
