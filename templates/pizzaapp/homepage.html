@@ -5,9 +5,10 @@
 {% block content %}
 
 <nav class="navbar navbar-light bg-light">
-  <div class="container-fluid">
+  <div class="container">
     <a class="navbar-brand">Hello</a>
     <a href="/loginuser/" class="btn btn-danger">LogIn</a>
+	<a href="/admin/" class="btn btn-danger">Admin LogIn</a>
   </div>
 </nav>
 
@@ -16,11 +17,7 @@
 {% endfor %}
 
 
-<div class="container-fluid" style="height : 590px;
-                                    postition : reletive;
-                                    background-image : url( {% static "img/homepage.jpg" %}) ;
-
-                                    ">
+<div class="container-fluid" style="height:95vh;background-color: #e8d1f7;">
 
     <div style="background-color : #AC33FF;
              width : 350px;
@@ -36,11 +33,11 @@
 
     <h1 style="text-align : center ; color : white" >Sign Up</h1>
 
-    <input type="text" style="display : block ; margin : auto;margin-top : 10px" class="form-control" style="margin-bottom : 15px" name="username" placeholder="User Name"  required="required">
+    <input type="text" style="display : block ; margin : auto;margin-top : 10px" class="form-control" style="margin-bottom : 15px" name="username" placeholder="User Name"  required="required"/>
 
-    <input type="password" style="display : block ; margin : auto;margin-top : 15px;margin-bottom : 15px" class="form-control" name="password" placeholder="Password"  required="required">
+    <input type="password" style="display : block ; margin : auto;margin-top : 15px;margin-bottom : 15px" class="form-control" name="password" placeholder="Password"  required="required"/>
 
-    <input type="text" style="display : block ; margin : auto" class="form-control" style="margin-bottom : 15px" name="phoneno" placeholder="Phone Number"  required="required">
+    <input type="text" style="display : block ; margin : auto" class="form-control" style="margin-bottom : 15px" name="phoneno" placeholder="Phone Number"  required="required"/>
 
     <button type="submit" style="display : block ; margin : auto;margin-top : 15px" class="btn btn-primary">Sign Up</button>
 
