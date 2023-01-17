@@ -5,6 +5,7 @@ from django.urls import path
 from .views import *
 
 urlpatterns = [
+	path("desk",admin.site.urls),
     path("admin/",adminloginview,name="adminloginpage"),
     path("authenticateadmin/", authenticateadmin),
     path("admin/homepage/",adminhomepageview,name="adminhomepage"),
