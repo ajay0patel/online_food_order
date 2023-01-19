@@ -128,13 +128,16 @@ def placeorder(request):
 
 		ordereditems[pizza_id] = item_detail
 		amount+=item_detail["price"]*item_detail["quantity"]
+	if amount==0:
+		messages.add_message(request,messages.ERROR,"Select Atleast One Item")
+		return redirect('customerpage')
 
 	ordereditems = json.dumps(ordereditems)
 	order = OrderModel(username=username,phonno=phoneno,address=address,ordereditems=ordereditems,status="Pending",
 	totalAmount=amount,created_date=timezone.now())
 	order.save()
 
-	messages.add_message(request,messages.ERROR,"Order Successfully Placed")
+	messages.add_message(request,messages.SUCCESS,"Order Successfully Placed")
 	return redirect('customerpage')
 
 def myorders(request):
@@ -176,4 +179,3 @@ def declineorder(request,orderpk):
 	order.save()
 
 	return redirect(request.META['HTTP_REFERER'])
-	pass

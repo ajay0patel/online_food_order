@@ -11,7 +11,8 @@
 </nav>
 
 {% for msg in messages %}
-<p style="color : green; text-align : center">{{msg}}</p>
+	{% if msg.tags == 'success' %}  <p style="color : green; text-align : center">{{msg}}</p>{%endif%}
+	{% if msg.tags == 'error' %}  <p style="color : red; text-align : center">{{msg}}</p>{%endif%}
 {% endfor %}
 
 
