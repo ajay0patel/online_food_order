@@ -13,20 +13,44 @@
 
 {% for odr in orders %}
 <div style="margin:40px" class="alert alert-info" role="alert">
-    <h5>Name : {{odr.username}}</h5>
-    <h5>Phone Number : {{odr.phonno}}</h5>
-    <h5>Delivery Address : {{odr.address}}</h5>
-    <h5>Ordered Pizzas : {{odr.ordereditems}}</h5>
-    <h5>Total Amount : {{odr.totalAmount}}</h5>
-    <h5 style="display: inline-block"> Ordered Status : </h5> <h5 style="color:red;display: inline-block">{{odr.status}}</h5><br>
-    <a href="/acceptorder/{{odr.id}}/" class="btn btn-success">Accept Order</a>
-    <a href="/declineorder/{{odr.id}}/" class="btn btn-danger">Decline Order</a>
+	<div style="float: left">
+		<h6> Order Date : {{odr.created_date}}</h6>
+		<h6 style="display: inline-block"> Order Status : </h6>
+		<h6 style="color:red;display: inline-block">{{odr.status}}</h6>
+		<h6>Name : {{odr.username}}</h6>
+		<h6>Phone Number : {{odr.phonno}}</h6>
+		<h6>Delivery Address : {{odr.address}}</h6>
+		<h6>Total Amount : {{odr.totalAmount}}</h6>
+	</div>
+	<div style="float: right;">
+		<a href="/acceptorder/{{odr.id}}/" class="btn btn-success">Accept Order</a>
+    	<a href="/declineorder/{{odr.id}}/" class="btn btn-danger">Decline Order</a>
+	</div>
+	
+	<div>
+		<table class="table table-striped">
+			<thead >
+				<th>Item Name</th>
+				<th>Price</th>
+				<th>Quantity</th>
+			</thead>
+			<tbody>
+					{% for key, detail in odr.ordereditems.items %}
+					<tr>
+						{% for k,v in detail.items %}
+						<td>{{v}}</td>
+						{% endfor %}
+					</tr>
+					{% endfor %}
+				
+	
+			</tbody>
+		</table>
+	</div>
+	
+
 </div>
 {% endfor %}
-
-
-
-
 
 
 
