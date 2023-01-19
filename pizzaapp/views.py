@@ -154,8 +154,9 @@ def myorders(request):
 	return render(request,"pizzaapp/myorders.html",context)
 
 def allorders(request):
-	order_data = OrderModel.objects.all()
-
+	order_data = OrderModel.objects.all().order_by('-created_date')
+	for data in order_data:
+		data.ordereditems = json.loads(data.ordereditems)
 	context = {
 		'orders' : order_data
 		}
